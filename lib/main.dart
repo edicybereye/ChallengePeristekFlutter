@@ -6,50 +6,113 @@ void main() {
   ));
 }
 
-class Coba extends StatelessWidget {
+class Coba extends StatefulWidget {
+  @override
+  _CobaState createState() => _CobaState();
+}
+
+class _CobaState extends State<Coba> {
+  var angka = 0;
+  var angka2 = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(height: 16.0,),
-          Center(
-            child: Text(
-              'Belajar Flutter',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            angka += 2;
+          });
+        },
+      ),
+      body: Container(
+        child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Column(
+              children: <Widget>[
+                Text(
+                  angka.toString(),
+                  style: TextStyle(fontSize: 50.0),
+                ),
+                RaisedButton(
+                  child: Text('Tambah 1'),
+                  onPressed: () {
+                    setState(() {
+                      angka++;
+                    });
+                  },
+                ),
+                RaisedButton(
+                  child: Text('Tambah 2'),
+                  onPressed: () {
+                    setState(() {
+                      angka += 2;
+                    });
+                  },
+                ),
+                RaisedButton(
+                  child: Text('Tambah 3'),
+                  onPressed: () {
+                    setState(() {
+                      angka += 3;
+                    });
+                  },
+                ),
+                RaisedButton(
+                  child: Text('Reset'),
+                  onPressed: () {
+                    setState(() {
+                      angka = 0;
+                    });
+                  },
+                ),
+              ],
             ),
-          ),
-          Text(
-            'Nama : Edi Kurniawan',
-            style: TextStyle(
-                fontSize: 18.0,
-                fontStyle: FontStyle.italic,
-                color: Colors.grey),
-          ),
-          Image.asset('gambar/minion.gif'),
-          SizedBox(height: 16.0,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              Icon(
-                Icons.home,
-                size: 50.0,
-              ),
-              Icon(
-                Icons.home,
-                size: 50.0,
-              ),
-              Icon(
-                Icons.home,
-                size: 50.0,
-              ),
-            ],
-          ),
-          SizedBox(height: 16.0,),
-          Center(child: Text('Terima Kasih'))
-        ],
+            SizedBox(width: 20.0,),
+            Column(
+              children: <Widget>[
+                Text(
+                  angka2.toString(),
+                  style: TextStyle(fontSize: 50.0),
+                ),
+                RaisedButton(
+                  child: Text('Tambah 1'),
+                  onPressed: () {
+                    setState(() {
+                      angka2++;
+                    });
+                  },
+                ),
+                RaisedButton(
+                  child: Text('Tambah 2'),
+                  onPressed: () {
+                    setState(() {
+                      angka2 += 2;
+                    });
+                  },
+                ),
+                RaisedButton(
+                  child: Text('Tambah 3'),
+                  onPressed: () {
+                    setState(() {
+                      angka2 += 3;
+                    });
+                  },
+                ),
+                RaisedButton(
+                  child: Text('Reset'),
+                  onPressed: () {
+                    setState(() {
+                      angka2 = 0;
+                    });
+                  },
+                ),
+              ],
+            ),
+          ],
+        )),
       ),
     );
   }
